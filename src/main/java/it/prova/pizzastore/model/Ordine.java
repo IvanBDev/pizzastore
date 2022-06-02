@@ -63,6 +63,11 @@ public class Ordine {
 		this.closed = closed;
 	}
 
+	public Ordine(String codice) {
+		super();
+		this.codice = codice;
+	}
+
 	public Long getId() {
 		return id;
 	}

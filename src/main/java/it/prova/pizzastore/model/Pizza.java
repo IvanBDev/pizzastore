@@ -56,12 +56,11 @@ public class Pizza {
 		this.ordini = ordini;
 	}
 
-	public Pizza(String descrizione, String ingredienti, Integer prezzoBase, boolean attivo) {
+	public Pizza(String descrizione, String ingredienti, Integer prezzoBase) {
 		super();
 		this.descrizione = descrizione;
 		this.ingredienti = ingredienti;
 		this.prezzoBase = prezzoBase;
-		this.attivo = attivo;
 	}
 
 	public Long getId() {
