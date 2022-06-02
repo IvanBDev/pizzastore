@@ -18,5 +18,7 @@ public interface ClienteService {
 	public void inserisci(Cliente clienteInstance) throws Exception;
 
 	public void rimuovi(Long idCliente) throws Exception;
+	
+	public List<Cliente> trovaTramiteEsempio(Cliente example) throws Exception;
 
 }

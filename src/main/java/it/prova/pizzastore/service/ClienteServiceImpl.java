@@ -121,4 +121,21 @@ public class ClienteServiceImpl implements ClienteService {
 			LocalEntityManagerFactoryListener.closeEntityManager(entityManager);
 		}
 	}
+
+	@Override
+	public List<Cliente> trovaTramiteEsempio(Cliente example) throws Exception {
+		// TODO Auto-generated method stub
+		EntityManager entityManager = LocalEntityManagerFactoryListener.getEntityManager();
+
+		try {
+			clienteDAO.setEntityManager(entityManager);
+			
+			return clienteDAO.findByExample(example);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			LocalEntityManagerFactoryListener.closeEntityManager(entityManager);
+		}
+	}
 }

@@ -90,5 +90,4 @@ public class UtenteDAOImpl implements UtenteDAO {
 		
 		return query.getResultStream().findFirst();
 	}
-
 }
