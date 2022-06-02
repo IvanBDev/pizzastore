@@ -46,15 +46,15 @@ public class LoginServlet extends HttpServlet {
 				request.getSession().setAttribute("userInfo", utenteInstance);
 				
 				if(utenteInstance.getUsername().equals("admin") && utenteInstance.getPassword().equals("admin")) {
-					destinazione = "admin/adminhomepage";
+					destinazione = "homeadmin";
 				}
 				
-				if(utenteInstance.getUsername().equals("pizzaiolo") && utenteInstance.getPassword().equals("pizzaiolo")) {
-					destinazione = "pizzaiolo/pizzaiolohomepage";
+				if(utenteInstance.getUsername().equals("pizza") && utenteInstance.getPassword().equals("pizza")) {
+					destinazione = "homepizzaiolo";
 				}
 				
 				if(utenteInstance.getUsername().equals("fattorino") && utenteInstance.getPassword().equals("fattorino")) {
-					destinazione = "fattorino/fattorinohomepage";
+					destinazione = "homefattorino";
 				}
 				
 			}
