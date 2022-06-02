@@ -17,7 +17,7 @@ public class MyServiceFactory {
 	private static ClienteDAO CLIENTE_DAO_INSTANCE;
 	private static UtenteService UTENTE_SERVICE_INSTANCE;
 	private static RuoloService RUOLO_SERVICE_INSTANCE;
-	private static UtenteDAO UTENTE_DAO_INSTANCE = null;
+	private static UtenteDAO UTENTE_DAO_INSTANCE  = null;
 	private static RuoloDAO RUOLO_DAO_INSTANCE = null;
 	private static PizzaService PIZZA_SERVICE_INSTANCE;
 	private static PizzaDAO PIZZA_DAO_INSTANCE;

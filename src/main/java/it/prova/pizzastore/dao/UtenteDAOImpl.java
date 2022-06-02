@@ -72,8 +72,8 @@ public class UtenteDAOImpl implements UtenteDAO {
 		// TODO Auto-generated method stub
 		TypedQuery<Utente> query = entityManager.createQuery(
 				"FROM Utente u WHERE u.username = :usernameInput AND u.password = :passwordInput", Utente.class);
-		query.setParameter("username", usernameInput);
-		query.setParameter("password", passwordInput);
+		query.setParameter("usernameInput", usernameInput);
+		query.setParameter("passwordInput", passwordInput);
 
 		return query.getResultStream().findFirst();
 	}
@@ -84,8 +84,8 @@ public class UtenteDAOImpl implements UtenteDAO {
 		TypedQuery<Utente> query = entityManager.createQuery(
 				"SELECT u FROM Utente u JOIN FETCH u.ruoli r WHERE u.username = :usernameInput AND u.password = :passwordInput and u.stato = :statoUtente",
 				Utente.class);
-		query.setParameter("username", usernameInput);
-		query.setParameter("password", passwordInput);
+		query.setParameter("usernameInput", usernameInput);
+		query.setParameter("passwordInput", passwordInput);
 		query.setParameter("statoUtente", StatoUtente.ATTIVO);
 		
 		return query.getResultStream().findFirst();

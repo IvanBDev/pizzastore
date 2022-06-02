@@ -56,12 +56,13 @@ public class RuoloDAOImpl implements RuoloDAO{
 	}
 
 	@Override
-	public Ruolo findByDescrizioneAndCodice(String descrizione, String codice) throws Exception {
+	public Ruolo findByDescrizioneAndCodice(String descrizioneInput, String codiceInput) throws Exception {
 		// TODO Auto-generated method stub
 		TypedQuery<Ruolo> query = entityManager
-				.createQuery("SELECT r FROM Ruolo r WHERE r.descrizione=?1 and r.codice=?2", Ruolo.class)
-				.setParameter(1, descrizione)
-				.setParameter(2, codice);
+				.createQuery("SELECT r FROM Ruolo r WHERE r.descrizione = :descrizioneInput and r.codice = :codiceInput", Ruolo.class);
+		query.setParameter("descrizioneInput", descrizioneInput);
+		query.setParameter("codiceInput", codiceInput);
+		
 		
 		return query.getResultStream().findFirst().orElse(null);
 	}
