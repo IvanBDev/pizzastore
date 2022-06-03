@@ -35,8 +35,7 @@ public class ExecuteSearchPizzaServlet extends HttpServlet {
 		}
 		
 		request.getRequestDispatcher("pizzaiolo/pizzaiololist.jsp").forward(request, response);
-		
-		
+
 	}
 
 }
