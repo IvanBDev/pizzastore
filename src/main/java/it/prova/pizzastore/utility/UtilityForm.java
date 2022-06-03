@@ -25,8 +25,11 @@ public class UtilityForm {
 		return true;
 	}
 
-	public static Cliente createClienteFromParas(String nomeParas, String cognomeParas, String indirizzoParas) {
-		Cliente result = new Cliente(nomeParas, cognomeParas, indirizzoParas);
+	public static Cliente createClienteFromParams(String nomeInputParam, String cognomeInputParam,
+			String indirizzoInputParam, String attivoParam) {
+
+		Cliente result = new Cliente(nomeInputParam, cognomeInputParam, indirizzoInputParam);
+		result.setAttivo(Boolean.parseBoolean(attivoParam));
 		return result;
 	}
 

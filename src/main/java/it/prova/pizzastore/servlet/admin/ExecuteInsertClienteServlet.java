@@ -24,7 +24,7 @@ public class ExecuteInsertClienteServlet extends HttpServlet {
 
 		// preparo un bean (che mi serve sia per tornare in pagina
 		// che per inserire) e faccio il binding dei parametri
-		Cliente nuovoCliente = UtilityForm.createClienteFromParas(nomeParam, cognomeParam, indirizzoParam);
+		Cliente nuovoCliente = new Cliente(nomeParam, cognomeParam, indirizzoParam);
 		nuovoCliente.setAttivo(true);
 
 		// se la validazione non risulta ok
