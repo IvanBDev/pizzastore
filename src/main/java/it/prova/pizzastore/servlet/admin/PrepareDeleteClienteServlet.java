@@ -12,8 +12,8 @@ import org.apache.commons.lang3.math.NumberUtils;
 import it.prova.pizzastore.model.Cliente;
 import it.prova.pizzastore.service.MyServiceFactory;
 
-@WebServlet("/ExecuteVisualizzaClienteServlet")
-public class ExecuteVisualizzaClienteServlet extends HttpServlet {
+@WebServlet("/PrepareDeleteClienteServlet")
+public class PrepareDeleteClienteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -24,7 +24,7 @@ public class ExecuteVisualizzaClienteServlet extends HttpServlet {
 		if (!NumberUtils.isCreatable(idClienteParam)) {
 			// qui ci andrebbe un messaggio nei file di log costruito ad hoc se fosse attivo
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
-			request.getRequestDispatcher("homeadmin").forward(request, response);
+			request.getRequestDispatcher("admin/adminhomepage.jsp").forward(request, response);
 			return;
 		}
 
@@ -32,24 +32,23 @@ public class ExecuteVisualizzaClienteServlet extends HttpServlet {
 			Cliente clienteInstance = MyServiceFactory.getClienteServiceInstance()
 					.caricaSingoloElemento(Long.parseLong(idClienteParam));
 
-			if (idClienteParam == null) {
+			if (clienteInstance == null) {
 				request.setAttribute("errorMessage", "Elemento non trovato.");
 				request.getRequestDispatcher("ExecuteListClientiServlet?operationResult=NOT_FOUND").forward(request,
 						response);
 				return;
 			}
 
-			request.setAttribute("clienti_list_attribute", clienteInstance);
+			request.setAttribute("delete_cliente_attr", clienteInstance);
 		} catch (Exception e) {
 			// qui ci andrebbe un messaggio nei file di log costruito ad hoc se fosse attivo
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
-			request.getRequestDispatcher("homeadmin").forward(request, response);
+			request.getRequestDispatcher("admin/adminhomepage.jsp").forward(request, response);
 			return;
 		}
 
-		request.getRequestDispatcher("/admin/adminshow.jsp").forward(request, response);
-
+		request.getRequestDispatcher("/admin/admindelete.jsp").forward(request, response);
 	}
 
 }

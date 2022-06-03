@@ -12,7 +12,7 @@ import it.prova.pizzastore.service.MyServiceFactory;
 import it.prova.pizzastore.utility.UtilityForm;
 
 @WebServlet("/ExecuteInsertRegistaServlet")
-public class ExecuteInsertRegistaServlet extends HttpServlet {
+public class ExecuteInsertClienteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -42,7 +42,7 @@ public class ExecuteInsertRegistaServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
-			request.getRequestDispatcher("/regista/insert.jsp").forward(request, response);
+			request.getRequestDispatcher("/admin/admininsert.jsp").forward(request, response);
 			return;
 		}
 
@@ -54,3 +54,4 @@ public class ExecuteInsertRegistaServlet extends HttpServlet {
 	}
 
 }
+

@@ -1,10 +1,15 @@
 package it.prova.pizzastore.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +28,9 @@ public class Cliente {
 	private String indirizzo;
 	@Column(name = "attivo")
 	private boolean attivo;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente")
+	private Set<Ordine> ordini = new HashSet<Ordine>(0);
 	
 	public Cliente() {
 		super();
