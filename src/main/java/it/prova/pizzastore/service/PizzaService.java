@@ -18,5 +18,7 @@ public interface PizzaService {
 	public void inserisci(Pizza pizzaInstance) throws Exception;
 
 	public void rimuovi(Long idPizza) throws Exception;
+	
+	public List<Pizza> trovaTramiteEsempio(Pizza example) throws Exception;
 
 }

@@ -56,6 +56,12 @@ public class Pizza {
 		this.ordini = ordini;
 	}
 
+	public Pizza(String descrizione, String ingredienti) {
+		super();
+		this.descrizione = descrizione;
+		this.ingredienti = ingredienti;
+	}
+
 	public Pizza(String descrizione, String ingredienti, Integer prezzoBase) {
 		super();
 		this.descrizione = descrizione;

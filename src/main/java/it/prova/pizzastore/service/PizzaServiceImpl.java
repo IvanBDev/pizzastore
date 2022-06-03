@@ -123,4 +123,22 @@ public class PizzaServiceImpl implements PizzaService {
 		}
 	}
 
+	@Override
+	public List<Pizza> trovaTramiteEsempio(Pizza example) throws Exception {
+		// TODO Auto-generated method stub
+		EntityManager entityManager = LocalEntityManagerFactoryListener.getEntityManager();
+
+		try {
+			pizzaDAO.setEntityManager(entityManager);
+
+			return pizzaDAO.findByExample(example);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			LocalEntityManagerFactoryListener.closeEntityManager(entityManager);
+		}
+	}
+
 }
