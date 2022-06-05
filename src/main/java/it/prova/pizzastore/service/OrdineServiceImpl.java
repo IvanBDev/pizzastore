@@ -197,4 +197,38 @@ public class OrdineServiceImpl implements OrdineService {
 				}
 	}
 
+	@Override
+	public Ordine caricaSingoloElementoEager(Long idOrdine) throws Exception {
+		// TODO Auto-generated method stub
+		EntityManager entityManager = LocalEntityManagerFactoryListener.getEntityManager();
+
+		try {
+			ordineDAO.setEntityManager(entityManager);
+
+			return ordineDAO.findOneEager(idOrdine).orElse(null);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			LocalEntityManagerFactoryListener.closeEntityManager(entityManager);
+		}
+	}
+
+	@Override
+	public List<Ordine> trovaIlTuoOrdineAssegnato(Long idUtente) throws Exception {
+		// TODO Auto-generated method stub
+		EntityManager entityManager = LocalEntityManagerFactoryListener.getEntityManager();
+
+		try {
+			ordineDAO.setEntityManager(entityManager);
+
+			return ordineDAO.getYourOrder(idUtente);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			LocalEntityManagerFactoryListener.closeEntityManager(entityManager);
+		}
+	}
+
 }

@@ -59,7 +59,7 @@ public class OrdineDAOImpl implements OrdineDAO {
 		// TODO Auto-generated method stub
 		if (input == null)
 			throw new Exception("Problema valore in input");
-		entityManager.remove(entityManager.merge(input));
+		input.setClosed(true);
 	}
 
 	@Override
@@ -122,6 +122,24 @@ public class OrdineDAOImpl implements OrdineDAO {
 		
 		return ordineInstance.getPrezzoTotaleOrdine();
 		
+	}
+
+	@Override
+	public Optional<Ordine> findOneEager(Long idOrdineInstance) throws Exception {
+		// TODO Auto-generated method stub
+		TypedQuery<Ordine> query = entityManager.createQuery("SELECT o FROM Ordine o LEFT JOIN FETCH o.cliente c LEFT JOIN FETCH o.utente u WHERE o.id = :idOrdine", Ordine.class);
+		query.setParameter("idOrdine", idOrdineInstance);
+		
+		return query.getResultList().stream().findFirst();
+	}
+
+	@Override
+	public List<Ordine> getYourOrder(Long idUtente) throws Exception {
+		// TODO Auto-generated method stub
+		TypedQuery<Ordine> query = entityManager.createQuery("SELECT o FROM Ordine o LEFT JOIN FETCH o.utente u WHERE u.id = :idUtente AND o.closed = false", Ordine.class);
+		query.setParameter("idUtente", idUtente);
+		
+		return query.getResultList();
 	}
 
 }

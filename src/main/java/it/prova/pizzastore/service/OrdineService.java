@@ -27,4 +27,8 @@ public void setOrdineDAO(OrdineDAO ordineDAO);
 	
 	public int calcolaPrezzoOrdine(Ordine ordineInstance, Set<Pizza> prezzoBasePizze) throws Exception;
 	
+	public Ordine caricaSingoloElementoEager(Long idOrdine) throws Exception;
+	
+	public List<Ordine> trovaIlTuoOrdineAssegnato(Long idUtente) throws Exception;
+	
 }
