@@ -1,4 +1,4 @@
-package it.prova.pizzastore.servlet.pizzaiolo;
+package it.prova.pizzastore.servlet.fattorino;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -12,42 +12,41 @@ import org.apache.commons.lang3.math.NumberUtils;
 import it.prova.pizzastore.exception.ElementNotFoundException;
 import it.prova.pizzastore.service.MyServiceFactory;
 
-@WebServlet("/ExecuteDeleteOrdineServlet")
-public class ExecuteDeleteOrdineServlet extends HttpServlet {
+@WebServlet("/ExecuteDeleteMioOrdineServlet")
+public class ExecuteDeleteMioOrdineServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String idOrdineParam = request.getParameter("idOrdine");
+		String idMioOrdineParam = request.getParameter("idOrdine");
 
-		if (!NumberUtils.isCreatable(idOrdineParam)) {
+		if (!NumberUtils.isCreatable(idMioOrdineParam)) {
 			// qui ci andrebbe un messaggio nei file di log costruito ad hoc se fosse attivo
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
-			request.getRequestDispatcher("/pizzaiolo/pizzaiolohomepage").forward(request, response);
+			request.getRequestDispatcher("/fattorino/fattorinohomepage").forward(request, response);
 			return;
 		}
 
 		try {
 
-			MyServiceFactory.getOrdineServiceInstance().rimuovi(Long.parseLong(idOrdineParam));
+			MyServiceFactory.getOrdineServiceInstance().rimuovi(Long.parseLong(idMioOrdineParam));
 
 		} catch (ElementNotFoundException e) {
-			
-			request.getRequestDispatcher("/pizzaiolo/pizzaiolohomepage").forward(request, response);
+
+			request.getRequestDispatcher("fattorino/fatorinolist.jsp").forward(request, response);
 			return;
-			
+
 		} catch (Exception e) {
 			// qui ci andrebbe un messaggio nei file di log costruito ad hoc se fosse attivo
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
-			request.getRequestDispatcher("/pizzaiolo/pizzaiolohomepage").forward(request, response);
+			request.getRequestDispatcher("/fattorino/fattorinohomepage").forward(request, response);
 			return;
-			
+
 		}
 
-		request.getRequestDispatcher("/fattorino/fatorinolist.jsp").forward(request, response);
-
+		response.sendRedirect("PrepareFattorinoListServlet?idFattorino=${userInfo.id}");
 	}
 
 }

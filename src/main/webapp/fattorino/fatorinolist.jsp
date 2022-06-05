@@ -58,8 +58,8 @@
 											<td>${fattorinoOrdineItem.codice }</td>
 											<td>${fattorinoOrdineItem.prezzoTotaleOrdine }</td>
 											<td>
-												<a class="btn  btn-sm btn-outline-secondary" href="ExecuteVisualizzaOrdineServlet?idOrdine=${fattorinoOrdineItem.id }">Visualizza</a>
-												<a class="btn btn-outline-danger btn-sm" href="PrepareDeleteOrdineServlet?idOrdine=${fattorinoOrdineItem.id }">Delete</a>
+												<a class="btn  btn-sm btn-outline-secondary" href="ExecuteVisualizzaMioOrdineServlet?idOrdine=${fattorinoOrdineItem.id }">Visualizza</a>
+												<a class="btn btn-outline-danger btn-sm" href="PrepareDeleteMioOrdineServlet?idOrdine=${fattorinoOrdineItem.id }">Delete</a>
 											</td>
 										</tr>
 									</c:forEach>
