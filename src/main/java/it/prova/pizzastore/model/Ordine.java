@@ -31,6 +31,8 @@ public class Ordine {
 	private Date data;
 	@Column(name="closed")
 	private boolean closed;
+	@Column(name = "prezzoTotaleOrdine")
+	private Integer prezzoTotaleOrdine;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cliente_id", nullable = false)
@@ -115,6 +117,30 @@ public class Ordine {
 
 	public void setPizze(Set<Pizza> pizze) {
 		this.pizze = pizze;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public Utente getUtente() {
+		return utente;
+	}
+
+	public void setUtente(Utente utente) {
+		this.utente = utente;
+	}
+
+	public Integer getPrezzoTotaleOrdine() {
+		return prezzoTotaleOrdine;
+	}
+
+	public void setPrezzoTotaleOrdine(Integer prezzoTotaleOrdine) {
+		this.prezzoTotaleOrdine = prezzoTotaleOrdine;
 	}
 	
 	

@@ -191,4 +191,25 @@ public class UtenteServiceImpl implements UtenteService{
 		}
 	}
 
+	@Override
+	public List<Utente> caricaTramiteRuolo(String ruoloInstance) throws Exception {
+		// TODO Auto-generated method stub
+		EntityManager entityManager = LocalEntityManagerFactoryListener.getEntityManager();
+
+		try {
+			// uso l'injection per il dao
+			utenteDAO.setEntityManager(entityManager);
+
+			// eseguo quello che realmente devo fare
+			List<Utente> fattorino = utenteDAO.findAllByRuolo(ruoloInstance);
+			return fattorino;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			LocalEntityManagerFactoryListener.closeEntityManager(entityManager);
+		}
+	}
+
 }

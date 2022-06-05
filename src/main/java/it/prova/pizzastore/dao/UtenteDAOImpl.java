@@ -6,7 +6,7 @@ import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-import it.prova.pizzastore.model.Ruolo;
+
 import it.prova.pizzastore.model.StatoUtente;
 import it.prova.pizzastore.model.Utente;
 
@@ -46,7 +46,7 @@ public class UtenteDAOImpl implements UtenteDAO {
 		// TODO Auto-generated method stub
 		if (input == null)
 			throw new Exception("Problema valore in input");
-		entityManager.persist(input);
+		entityManager.merge(input);
 	}
 
 	@Override
@@ -58,10 +58,10 @@ public class UtenteDAOImpl implements UtenteDAO {
 	}
 
 	@Override
-	public List<Utente> findAllByRuolo(Ruolo ruoloInput) throws Exception {
+	public List<Utente> findAllByRuolo(String ruoloInput) throws Exception {
 		// TODO Auto-generated method stub
 		TypedQuery<Utente> query = entityManager
-				.createQuery("SELECT u FROM Utente u JOIN u.ruoli r WHERE r = :ruoloInput", Utente.class);
+				.createQuery("SELECT u FROM Utente u JOIN u.ruoli r WHERE r.codice = :ruoloInput", Utente.class);
 		query.setParameter("ruoloInput", ruoloInput);
 
 		return query.getResultList();

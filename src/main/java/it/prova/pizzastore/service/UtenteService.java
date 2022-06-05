@@ -26,4 +26,6 @@ public interface UtenteService {
 	
 	public Utente accedi(String username, String password) throws Exception;
 	
+	public List<Utente> caricaTramiteRuolo(String ruoloInstance) throws Exception;
+	
 }
