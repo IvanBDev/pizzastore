@@ -59,7 +59,7 @@
 								    <select class="form-select" id="cliente.id" name="cliente.id">
 								    	<option value="" selected> -- Selezionare una voce -- </option>
 								      	<c:forEach items="${list_cliente_attr}" var="clienteItem">
-								      		<option value="${clienteItem.id}">${clienteItem.nome} ${clienteItem.cognome}</option>
+								      		<option value="${clienteItem.id}" ${update_ordine_attr.cliente.id == clienteItem.id?'selected':''}>${clienteItem.nome} ${clienteItem.cognome}</option>
 								      	</c:forEach>
 								    </select>
 								</div>
@@ -69,7 +69,7 @@
 								    <select class="form-select" id="utente.id" name="utente.id">
 								    	<option value="" selected> -- Selezionare una voce -- </option>
 								      	<c:forEach items="${list_utente_attr}" var="utenteItem">
-								      		<option value="${utenteItem.id}">${utenteItem.nome} ${utenteItem.cognome}</option>
+								      		<option value="${utenteItem.id}" ${update_ordine_attr.utente.id == utenteItem.id?'selected':''}>${utenteItem.nome} ${utenteItem.cognome}</option>
 								      	</c:forEach>
 								    </select>
 								</div>
