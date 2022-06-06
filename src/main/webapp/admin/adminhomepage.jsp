@@ -3,9 +3,9 @@
 	 <head>
 	 
 	 	<!-- Common imports in pages -->
-	 	<jsp:include page="./header.jsp" />
+	 	<jsp:include page="../header.jsp" />
 		<!-- Custom styles per le features di bootstrap 'Columns with icons' -->
-	   <link href="./assets/css/features.css" rel="stylesheet">
+	   <link href="../assets/css/features.css" rel="stylesheet">
 	   
 	   <title>Gestione Clienti</title>
 	 </head>
@@ -36,7 +36,7 @@
 	   
 	   
 	   		<!-- Fixed navbar -->
-	   		<jsp:include page="./navbar.jsp"></jsp:include>
+	   		<jsp:include page="../navbar.jsp"></jsp:include>
 	    
 			
 			<!-- Begin page content -->
@@ -52,7 +52,7 @@
 				      <div class="container-fluid py-5">
 				        <h1 class="display-5 fw-bold">Benvenuto Admin!</h1>
 				        <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. </p>
-				        <a class="btn btn-primary btn-lg" href="PrepareSearchClientiServlet">Vai alla gestione Utenti</a>
+				        <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/PrepareSearchClientiServlet">Vai alla gestione Utenti</a>
 				      </div>
 			    </div>
 			    
@@ -63,6 +63,6 @@
 			</main>
 			
 			<!-- Footer -->
-			<jsp:include page="./footer.jsp" />
+			<jsp:include page="../footer.jsp" />
 	  </body>
 </html>

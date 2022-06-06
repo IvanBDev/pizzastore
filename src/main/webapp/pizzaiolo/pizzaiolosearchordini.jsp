@@ -5,14 +5,14 @@
 	 <head>
 	 
 	 	<!-- Common imports in pages -->
-	 	<jsp:include page="../pizzaiolo/header.jsp" />
+	 	<jsp:include page="../header.jsp" />
 	   
 	   <title>Ricerca</title>
 	 </head>
 	   <body class="d-flex flex-column h-100">
 	   
 	   		<!-- Fixed navbar -->
-	   		<jsp:include page="../pizzaiolo/navbar.jsp"></jsp:include>
+	   		<jsp:include page="../navbar.jsp"></jsp:include>
 	    
 			
 			<!-- Begin page content -->
@@ -55,7 +55,7 @@
 								
 							<div class="col-12">
 								<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary">Conferma</button>
-								<a class="btn btn-outline-primary ml-2" href="PrepareInsertPizzaServlet">Add New</a>
+								<a class="btn btn-outline-primary ml-2" href="PrepareInsertOrdineServlet">Add New</a>
 								<input class="btn btn-outline-warning" type="reset" value="Ripulisci">
 							</div>
 		
@@ -75,6 +75,6 @@
 			</main>
 			
 			<!-- Footer -->
-			<jsp:include page="../pizzaiolo/footer.jsp" />
+			<jsp:include page="../footer.jsp" />
 	  </body>
 </html>

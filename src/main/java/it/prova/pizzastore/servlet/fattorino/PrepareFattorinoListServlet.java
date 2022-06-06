@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import it.prova.pizzastore.model.Utente;
 import it.prova.pizzastore.service.MyServiceFactory;
 
 @WebServlet("/PrepareFattorinoListServlet")
@@ -16,11 +17,11 @@ public class PrepareFattorinoListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String idFattorinoParam = request.getParameter("idFattorino");
+		Utente utenteInSessione = (Utente) request.getSession().getAttribute("userInfo");
 
 		try {
 			request.setAttribute("list_ordinifattorino_attr", MyServiceFactory.getOrdineServiceInstance()
-					.trovaIlTuoOrdineAssegnato(Long.parseLong(idFattorinoParam)));
+					.trovaIlTuoOrdineAssegnato(utenteInSessione.getId()));
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

@@ -14,7 +14,7 @@
 	<body class="d-flex flex-column h-100">
 	 
 		<!-- Fixed navbar -->
-		<jsp:include page="../admin/navbar.jsp"></jsp:include>
+		<jsp:include page="../navbar.jsp"></jsp:include>
 	 
 	
 		<!-- Begin page content -->
@@ -84,7 +84,7 @@
 		</main>
 		
 		<!-- Footer -->
-		<jsp:include page="../admin/footer.jsp" />
+		<jsp:include page="../footer.jsp" />
 		
 	</body>
 </html>

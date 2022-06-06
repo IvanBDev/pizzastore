@@ -3,14 +3,14 @@
 	 <head>
 	 
 	 	<!-- Common imports in pages -->
-	 	<jsp:include page="../pizzaiolo/header.jsp" />
+	 	<jsp:include page="../header.jsp" />
 	   
 	   <title>Ricerca</title>
 	 </head>
 	   <body class="d-flex flex-column h-100">
 	   
 	   		<!-- Fixed navbar -->
-	   		<jsp:include page="../pizzaiolo/navbar.jsp"></jsp:include>
+	   		<jsp:include page="../navbar.jsp"></jsp:include>
 	    
 			
 			<!-- Begin page content -->
@@ -69,6 +69,6 @@
 			</main>
 			
 			<!-- Footer -->
-			<jsp:include page="../pizzaiolo/footer.jsp" />
+			<jsp:include page="../footer.jsp" />
 	  </body>
 </html>

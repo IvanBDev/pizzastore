@@ -18,7 +18,7 @@ import it.prova.pizzastore.model.Utente;
 public class CheckAuthFilter implements Filter {
 
 	private static final String HOME_PATH = "";
-	private static final String[] EXCLUDED_URLS = { "/login.jsp", "/LoginServlet", "/LogoutServlet", "/assets/" };
+	private static final String[] EXCLUDED_URLS = { "/login.jsp", "/LoginServlet", "/LogoutServlet", "/assets/"};
 	private static final String[] PROTECTED_URLS = { "/users/" };
 
 	public CheckAuthFilter() {

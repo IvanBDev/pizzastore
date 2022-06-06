@@ -3,9 +3,9 @@
 	 <head>
 	 
 	 	<!-- Common imports in pages -->
-	 	<jsp:include page="../pizzaiolo/header.jsp" />
+	 	<jsp:include page="../header.jsp" />
 		<!-- Custom styles per le features di bootstrap 'Columns with icons' -->
-	   <link href="./assets/css/features.css" rel="stylesheet">
+	   <link href="../assets/css/features.css" rel="stylesheet">
 	   
 	   <title>PIzzaiolo HomePage</title>
 	 </head>
@@ -36,7 +36,7 @@
 	   
 	   
 	   		<!-- Fixed navbar -->
-	   		<jsp:include page="../pizzaiolo/navbar.jsp"></jsp:include>
+	   		<jsp:include page="../navbar.jsp"></jsp:include>
 	    
 			
 			<!-- Begin page content -->
@@ -52,7 +52,7 @@
 				      <div class="container-fluid py-5">
 				        <h1 class="display-5 fw-bold">Benvenuto Pizzaiolo!</h1>
 				        <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. </p>
-				        <a class="btn btn-primary btn-lg" href="PrepareInsertPizzaServlet">Vai a Inserisci Pizza</a>
+				        <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/PrepareInsertPizzaServlet">Vai a Inserisci Pizza</a>
 				      </div>
 			    </div>
 			    
@@ -67,7 +67,7 @@
 			        </div>
 			        <h2>Gestione Pizze</h2>
 			        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-			        <a href="PrepareSearchPizzaServlet" class="icon-link">
+			        <a href="${pageContext.request.contextPath}/PrepareSearchPizzaServlet" class="icon-link">
 			          Vai a gestione delle Pizze
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 			        </a>
@@ -79,7 +79,7 @@
 			        </div>
 			        <h2>Gestione Ordini</h2>
 			        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-			        <a href="PrepareSearchOrdiniServlet" class="icon-link">
+			        <a href="${pageContext.request.contextPath}/PrepareSearchOrdiniServlet" class="icon-link">
 			          Vai alla gestione degli Ordini
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 			        </a>
@@ -90,6 +90,6 @@
 			</main>
 			
 			<!-- Footer -->
-			<jsp:include page="../pizzaiolo/footer.jsp" />
+			<jsp:include page="../footer.jsp" />
 	  </body>
 </html>

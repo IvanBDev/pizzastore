@@ -76,7 +76,7 @@ public class OrdineDAOImpl implements OrdineDAO {
 		}
 
 		if (example.getData() != null) {
-			whereClauses.add(" o.data  >= :data ");
+			whereClauses.add(" o.data  = :data ");
 			paramaterMap.put("data", example.getData());
 		}
 		
@@ -90,12 +90,12 @@ public class OrdineDAOImpl implements OrdineDAO {
 		}
 
 		if (example.getUtente() != null) {
-			whereClauses.add(" o.utente_id  = :utente_id ");
+			whereClauses.add(" o.utente.id  = :utente_id ");
 			paramaterMap.put("utente_id", example.getUtente());
 		}
 
 		if (example.getCliente() != null) {
-			whereClauses.add(" o.cliente_id  = :cliente_id ");
+			whereClauses.add(" o.cliente.id  = :cliente_id ");
 			paramaterMap.put("cliente_id", example.getCliente());
 		}
 
@@ -127,7 +127,7 @@ public class OrdineDAOImpl implements OrdineDAO {
 	@Override
 	public Optional<Ordine> findOneEager(Long idOrdineInstance) throws Exception {
 		// TODO Auto-generated method stub
-		TypedQuery<Ordine> query = entityManager.createQuery("SELECT o FROM Ordine o LEFT JOIN FETCH o.cliente c LEFT JOIN FETCH o.utente u WHERE o.id = :idOrdine", Ordine.class);
+		TypedQuery<Ordine> query = entityManager.createQuery("SELECT o FROM Ordine o LEFT JOIN FETCH o.cliente c LEFT JOIN FETCH o.utente u JOIN FETCH o.pizze p WHERE o.id = :idOrdine", Ordine.class);
 		query.setParameter("idOrdine", idOrdineInstance);
 		
 		return query.getResultList().stream().findFirst();
